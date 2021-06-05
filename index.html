@@ -25,21 +25,14 @@
                     else{
                         DoRequest("api.openweathermap.org/data/2.5/weather", Ciudad)
                     }
-
-
-
-
                 })
-
-
-
             })
 
 
             function DoRequest(url, ciudad){
                 $.ajax({
                     //Cambiar a type: POST si necesario
-                    type: "GET",
+                    type: "POST",
                     // Formato de datos que se espera en la respuesta
                     dataType: "json",
                     // URL a la que se enviará la solicitud Ajax
