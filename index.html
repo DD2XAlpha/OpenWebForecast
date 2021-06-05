@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pruebas</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <input id="Ciudad">
+        <button id="Buscar">Buscar</button>
+        <div id="Print"></div>
+
+
+
+        <script>
+
+            let apikey = "1f98827dc50ba40c70719a6a8174dd3d";
+
+            $(document).ready(function(){
+
+                $("#Buscar").on('click', function(){
+                    let Ciudad = $("#Ciudad").val();
+                    if(Ciudad === null || Ciudad === ''){
+                        alert("No se puede dejar el campo de ciudad vacio");
+                    }
+                    else{
+                        DoRequest("api.openweathermap.org/data/2.5/weather", Ciudad)
+                    }
+
+
+
+
+                })
+
+
+
+            })
+
+
+            function DoRequest(url, ciudad){
+                $.ajax({
+                    //Cambiar a type: POST si necesario
+                    type: "GET",
+                    // Formato de datos que se espera en la respuesta
+                    dataType: "json",
+                    // URL a la que se enviará la solicitud Ajax
+                    url: url + "?q=" + ciudad + "&appid=" + apikey,
+                })
+                .done(function( data, textStatus, jqXHR ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud se ha completado correctamente." );
+                        console.log(data)
+                    }
+                })
+                .fail(function( jqXHR, textStatus, errorThrown ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud a fallado: " +  textStatus);
+                    }
+                });
+
+            }
+        </script>
+
+
+    </body>
+</html>
