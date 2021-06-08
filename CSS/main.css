@@ -12,8 +12,6 @@ body{
     );
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
-    
-    
 }
 
 .title-text{
@@ -36,6 +34,20 @@ body{
     font-size: xx-large;
     color: white;
     text-transform: uppercase;
+}
+
+.super-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    color: white;
+    
+}
+
+.ultra-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: white;
+    
 }
 
 .five-day-numbers{
@@ -63,8 +75,17 @@ body{
     text-transform: uppercase;
 }
 
+.transparent{
+    background: rgba(0, 0,0, 0.5);
+    opacity: 0.5;
+}
+
 .iconset{
     max-height: 150px;
+}
+
+.iconcurrent{
+    max-height: 350px;
 }
 
 .heat-color{
