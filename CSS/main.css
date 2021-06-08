@@ -1,0 +1,109 @@
+*{
+    cursor: -webkit-image-set(url('../icons/hand.cur') 1x,url('../icons/hand.png') 1x),auto !important;
+}
+
+img{
+    cursor: url(icons/hand.cur), url(icons/hand.png), auto;
+}
+
+body{
+    background: linear-gradient(
+       to right, #316dc0, #2f3185
+    );
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    
+    
+}
+
+.title-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.title-simple-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    color: white;
+    text-transform: uppercase;
+}
+
+.status-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    color: white;
+    text-transform: uppercase;
+}
+
+.five-day-numbers{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card{
+    border: none !important;
+}
+
+.card-top-color{
+    background-color: #2a4879 !important;
+    color: white;
+    font-size: xx-large;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card-body-color{
+    background: linear-gradient(#235dff, #2a3d7d) !important;
+    font-size: xx-large;
+    text-transform: uppercase;
+}
+
+.iconset{
+    max-height: 150px;
+}
+
+.heat-color{
+    color: #dec157;
+}
+
+.cold-color{
+    color: #83e6f3;
+}
+
+.band-color{
+    background-color: #076612;
+}
+
+.band-light-color{
+    background-color: #0baa55;
+}
+
+.search-bar{
+    background: rgba(100, 100, 100, 0.3);
+    border: none;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 15px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(red, green, blue, 0.5);
+  }

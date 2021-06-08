@@ -1,58 +1,136 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pruebas</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <title>Web Forecast Channel</title>
+        <link href="CSS/main.css"/ rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <input id="Ciudad">
-        <button id="Buscar">Buscar</button>
-        <div id="Print"></div>
+        <div class="container pt-1">
+            <div class="row">
+                <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-8 text-center">
+                    <input type="text" class="search-bar" placeholder="Enter city here">
+            </div>
+            <div class="col-md-2">&nbsp;</div>
+            </div>
+            
+        </div>
+        <div class="row band-color mt-1">
+            <div class="col-md-4 text-center">
+                <span class="title-text ">
+                    5-day<br>
+                    Forecast
+                </span>
+            </div>
+            <div class="col-md-4">
+              &nbsp;
+            </div>
+            <div class="col-md-4 text-center band-light-color">
+                <br>
+                <span class="title-simple-text ">
+                    Reynosa
+                </span>
+            </div>
+        </div>
 
-
-
-        <script>
-
-            let apikey = "1f98827dc50ba40c70719a6a8174dd3d";
-
-            $(document).ready(function(){
-
-                $("#Buscar").on('click', function(){
-                    let Ciudad = $("#Ciudad").val();
-                    if(Ciudad === null || Ciudad === ''){
-                        alert("No se puede dejar el campo de ciudad vacio");
-                    }
-                    else{
-                        DoRequest("api.openweathermap.org/data/2.5/weather", Ciudad)
-                    }
-                })
-            })
-
-
-            function DoRequest(url, ciudad){
-                $.ajax({
-                    //Cambiar a type: POST si necesario
-                    type: "POST",
-                    // Formato de datos que se espera en la respuesta
-                    dataType: "json",
-                    // URL a la que se enviará la solicitud Ajax
-                    url: url + "?q=" + ciudad + "&appid=" + apikey,
-                })
-                .done(function( data, textStatus, jqXHR ) {
-                    if ( console && console.log ) {
-                        console.log( "La solicitud se ha completado correctamente." );
-                        console.log(data)
-                    }
-                })
-                .fail(function( jqXHR, textStatus, errorThrown ) {
-                    if ( console && console.log ) {
-                        console.log( "La solicitud a fallado: " +  textStatus);
-                    }
-                });
-
-            }
-        </script>
-
-
+        <div class="container-fluid pt-3">
+            <div class="row">
+                
+            </div>
+        </div>
+        <div class="container-fluid pt-3">
+            <div class="row">
+                <div class="col-md-1">&nbsp;</div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-header card-top-color">
+                          MON
+                        </div>
+                        <div class="card-body card-body-color">
+                            <img class="img-fluid iconset" src="icons/sun.png"/>
+                            <br>
+                          <span class="card-text heat-color five-day-numbers">79</span>
+                          <br>
+                          <span class="card-text cold-color five-day-numbers">48</span>
+                        </div>
+                        
+                      </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-header card-top-color">
+                          TUE
+                        </div>
+                        <div class="card-body card-body-color">
+                            <img class="img-fluid iconset" src="icons/cloud.png"/>
+                            <br>
+                            <span class="card-text heat-color five-day-numbers">79</span>
+                            <br>
+                            <span class="card-text cold-color five-day-numbers">48</span>
+                          </div>
+                          
+                        </div>
+                        
+                      </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-header card-top-color">
+                          WED
+                        </div>
+                        <div class="card-body card-body-color">
+                            <img class="img-fluid iconset" src="icons/partly-cloudy-moon.png"/>
+                            <br>
+                            <span class="card-text heat-color five-day-numbers">79</span>
+                            <br>
+                            <span class="card-text cold-color five-day-numbers">48</span>
+                        </div>
+                        
+                      </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-header card-top-color">
+                          THU
+                        </div>
+                        <div class="card-body card-body-color">
+                            <img class="img-fluid iconset" src="icons/partly-cloudy.png"/>
+                            <br>
+                            <span class="card-text heat-color five-day-numbers">79</span>
+                            <br>
+                            <span class="card-text cold-color five-day-numbers">48</span>
+                        </div>
+                        
+                      </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-header card-top-color">
+                          FRI
+                        </div>
+                        <div class="card-body card-body-color">
+                            <img class="img-fluid iconset" src="icons/moon.png"/>
+                            <br>
+                            <span class="card-text heat-color five-day-numbers">79</span>
+                            <br>
+                            <span class="card-text cold-color five-day-numbers">48</span>
+                        </div>
+                        
+                      </div>
+                </div>
+                <div class="col-md-1">&nbsp;</div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4">&nbsp;</div>
+                <div class="col-md-4 text-center pt-3">
+                    <button id="btnMovePages" class="btn btn-primary"><i class="fas fa-arrow-down"></i> 5-day Forecast</button>
+                </div>
+                <div class="col-md-4">&nbsp;</div>
+            </div>
+        </div>
+        
     </body>
 </html>
