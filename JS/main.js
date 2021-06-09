@@ -5,7 +5,7 @@ $(document).ready(function(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://api.openweathermap.org/data/2.5/weather?id=524901&lang=fr&appid=" + config.MY_API_TOKEN,
+        "url": "http://api.openweathermap.org/data/2.5/weather?id=524901&lang=fr&appid=" + config.TOK,
         "method": "GET"
       }
       $.ajax(settings).done(function (response) {
