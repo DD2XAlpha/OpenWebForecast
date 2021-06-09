@@ -6,19 +6,46 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
         <div class="container pt-1">
             <div class="row">
                 <div class="col-md-2">&nbsp;</div>
             <div class="col-md-8 text-center">
-                    <input type="text" class="search-bar" placeholder="Enter city here">
+                    <input type="text" class="search-bar" placeholder="Enter city here" id="Search">
             </div>
-            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-2">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" id="btnCentigrados">
+                  °C
+                </button>
+                <button type="button" class="btn btn-light" id="btnFarenheit">°F</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" id="btnVolumen"><i class="fas fa-volume-up"></i></button>
+                <button type="button" class="btn btn-light" id="btnMute"><i class="fas fa-volume-mute"></i></button>
+              </div>
+            </div>
             </div>
             
         </div>
-        <div class="row band-color mt-1">
+        <div class="row mt-4" id="start">
+          <div class="col-md-12 text-center">
+            <span class="title-text">Write your city in the search bar</span>
+          </div>
+        </div>
+        <div class="row mt-4" id="loadingScreen" hidden>
+          <div class="col-md-12 text-center">
+           
+            <span class="title-text">
+              <i class="far fa-sun fa-spin"></i><br>
+              Getting the weather for you...
+            </span>
+          </div>
+        </div>
+        <div class="row band-color mt-1" hidden id="greenBand">
             <div class="col-md-4 text-center">
                 <span class="title-text ">
                     5-day<br>
@@ -36,7 +63,7 @@
             </div>
         </div>
 
-        <div class="container-fluid pt-3">
+        <div class="container-fluid pt-3" hidden id="currentWeather">
             <div class="row">
                 <div class="col-md-1">&nbsp;</div>
                 <div class="col-md-5 super-text text-center">
@@ -59,7 +86,7 @@
         <div class="container-fluid pt-3">
 
         </div>
-        <div class="container-fluid pt-3" hidden>
+        <div class="container-fluid pt-3" hidden id="fiveDayWeather">
             <div class="row">
                 <div class="col-md-1">&nbsp;</div>
                 <div class="col-md-2">
@@ -143,7 +170,7 @@
             </div>
            
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid" hidden id="btnShowMore">
             <div class="row">
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4 text-center pt-3">
@@ -152,5 +179,8 @@
                 <div class="col-md-4">&nbsp;</div>
             </div>
         </div>
+        <script type='text/javascript' src='JS/config.js'></script>
+        <script src="JS/main.js"></script>
+ 
     </body>
 </html>

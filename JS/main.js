@@ -2,18 +2,7 @@ var audio;
 
 $(document).ready(function(){
 
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://api.openweathermap.org/data/2.5/weather?id=524901&lang=fr&appid=" + config.TOK,
-        "method": "GET"
-      }
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-
-
-
+   
 
     $("#btnVolumen").on('click', function(){
         PlaySound("sound/night.mp3")
@@ -24,6 +13,20 @@ $(document).ready(function(){
         audio.currentTime = 0;
     })
 
+    $("#Search").on("change", function(){
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://api.openweathermap.org/data/2.5/weather?q=" + $(this).val() + "&lang=en&appid=" + config.TOK + "&units=" + "metric",
+            "method": "GET"
+          }
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+          });
+    
+    
+    
+    })
     
 })
 
