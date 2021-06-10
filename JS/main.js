@@ -92,5 +92,6 @@ function StopSound(){
 }
 
 function WhatTimeIsIt(){
-    return Time.getHours();
+    let time =  Time.getHours();
+    return time;
 }
