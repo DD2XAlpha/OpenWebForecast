@@ -41,7 +41,7 @@ $(document).ready(function(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://api.openweathermap.org/data/2.5/weather?q=" + $(this).val() + "&lang=en&appid=" + config.TOK + "&units=" + "metric",
+            "url": "https://api.openweathermap.org/data/2.5/weather?q=" + $(this).val() + "&lang=en&appid=" + config.TOK + "&units=" + "metric",
             "method": "GET"
           }
           $.ajax(settings).done(function (response) {
