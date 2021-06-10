@@ -45,7 +45,7 @@ $(document).ready(function(){
             "method": "GET"
           }
           $.ajax(settings).done(function (response) {
-            let IsDayTime = WhatTimeIsIt() > 6 && WhatTimeIsIt < 19 ? true : false;
+            let IsDayTime = WhatTimeIsIt() > 6 && WhatTimeIsIt() < 19 ? true : false;
             let weatherArr = IsDayTime ? _dayArray : _nightArray;
             var icon = "";
             var sound = "";
