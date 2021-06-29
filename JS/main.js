@@ -1,18 +1,9 @@
 var audio = new Audio();
 var metric = "C";
+var metricSpeed = "m/s";
 let Time = new Date();
-let _dayArray = [
-    {weather : { icon: "icons/sun.png", code : 800,  sound: "sound/day.mp3"}},
-    {weather : { icon: "icons/partly-cloudy.png", code : 801, sound: "sound/day.mp3"}},
-    {weather : { icon: "icons/cloud.png", code : 802, sound: "sound/day.mp3"}},
-    {weather : { icon: "icons/cloud.png", code : 803, sound: "sound/day.mp3"}},
-]
-let _nightArray = [
-     {weather : { icon: "icons/moon.png", code : 800, sound: "sound/night.mp3"}},
-     {weather : { icon: "icons/partly-cloudy-moon.png", code : 801,  sound: "sound/night.mp3"}},
-     {weather : { icon: "icons/cloud.png", code : 802,  sound: "sound/night.mp3"}},
-     {weather : { icon: "icons/cloud.png", code : 802,  sound: "sound/night.mp3"}},
-]
+var Units = "metric";
+
 
 //VARIABLES  THAT INTERACT WITH THE HTML
 var CurrentIcon = "";
@@ -32,16 +23,33 @@ $(document).ready(function(){
         audio.currentTime = 0;
     })
 
-    $("#Search").on("change", function(){
+    $("#btnCentigrados").on("click", function(){
+        if(metric != "C"){
+            metric = "C";
+            metricSpeed = "m/s";
+            Units = "metric";
+        $("#Search").trigger("change");
+        }
+        
+    })
 
+    $("#btnFarenheit").on("click", function(){
+        if(metric != "F"){
+            metric = "F";
+            Units = "imperial"
+            metricSpeed = "mph"
+            $("#Search").trigger("change");
+        }
+       
+    })
+
+    $("#Search").on("change", function(){
         $("#start").attr("hidden", "hidden")
         $("#loading").removeAttr("hidden");
-        
-
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.openweathermap.org/data/2.5/weather?q=" + $(this).val() + "&lang=en&appid=" + config.TOK + "&units=" + "metric",
+            "url": "https://api.openweathermap.org/data/2.5/weather?q=" + $(this).val() + "&lang=en&appid=" + config.TOK + "&units=" + Units,
             "method": "GET"
           }
           $.ajax(settings).done(function (response) {
@@ -63,13 +71,10 @@ $(document).ready(function(){
             $("#CurrentDegrees").html(Degrees);
             $("#currentWeather").html(CurrentWeather)
             $(".iconcurrent").attr("src", CurrentIcon)
+            $("#windSpeed").html("Wind: " + response.wind.speed + " " + metricSpeed);
             audio.pause();
             audio.currentTime = 0;
             PlaySound(sound);
-
-
-
-
             $("#loading").attr("hidden", "hidden");
             $("#current").removeAttr("hidden");
             $("#greenBand").removeAttr("hidden");
